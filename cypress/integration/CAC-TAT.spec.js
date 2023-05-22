@@ -136,7 +136,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             .selectFile('cypress/fixtures/example.json', 'example.json', { action: 'drag-drop' })
     })
 
-    it.only('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function() {
+    it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias', function() {
         cy.get('input[type="file"]')
             .should('not.have.value')
             .selectFile([
@@ -145,5 +145,12 @@ describe('Central de Atendimento ao Cliente TAT', function() {
                     fileName: 'usingAliasAsTheName'
                 }
             ])
+    })
+
+    it('seleciona um arquivo utilizando uma fixture para a qual foi dada um alias 02', function() {
+        cy.fixture('example').as('exampleFileAsAlias')
+        cy.get('input[type="file"]')
+            .should('not.have.value')
+            .selectFile('@exampleFileAsAlias')
     })
   })
