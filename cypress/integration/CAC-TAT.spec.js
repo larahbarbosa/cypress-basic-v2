@@ -124,9 +124,15 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             .uncheck()
             .should('not.be.checked') 
     })
-    it.only('Seleciona um arquivo da pasta fixtures', function() {
+    it('Seleciona um arquivo da pasta fixtures', function() {
         cy.get('input[type="file"]')
             .should('not.have.value')
             .selectFile('cypress/fixtures/example.json', 'example.json')
+    })
+
+    it.only('Seleciona um arquivo simulando drag-and-drop', function() {
+        cy.get('input[type="file"]')
+            .should('not.have.value')
+            .selectFile('cypress/fixtures/example.json', 'example.json', { action: 'drag-drop' })
     })
   })
