@@ -226,6 +226,12 @@ describe('Central de Atendimento ao Cliente TAT', function() {
             })
         })
 
+    it.only('Acha o gato escondido na aplicação', () => {
+        cy.get('#cat')
+            .invoke('show')
+           
+    })    
+
 
     
 })
